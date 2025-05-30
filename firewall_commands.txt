@@ -1,0 +1,22 @@
+# 1. Check UFW status
+sudo ufw status verbose
+
+# 2. Enable UFW if not already enabled
+sudo ufw enable
+
+# 3. Add rule to block port 23 (Telnet)
+sudo ufw deny 23/tcp
+
+# 4. Check status to confirm rule
+sudo ufw status
+
+# 5. Test by trying to connect to port 23 (this will be blocked)
+
+# 6. Add rule to allow SSH (port 22)
+sudo ufw allow 22/tcp
+
+# 7. Remove Telnet block rule to restore state
+sudo ufw delete deny 23/tcp
+
+# 8. Final status check
+sudo ufw status verbose
